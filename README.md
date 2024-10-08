@@ -44,9 +44,9 @@ $a_{ij}$ и $b_{ij}$ элементы этих матриц соответств
 Необходимы пакеты: os, astropy, matplotlib, datetime, numpy, scipy. 
 ### Убедитесь, что у вас установлен Python и pip:
 
-```sh
+'''sh
 python --version
-pip --version
+pip --version '''
 
 ### Обновите pip до последней версии (рекомендуется):
 
