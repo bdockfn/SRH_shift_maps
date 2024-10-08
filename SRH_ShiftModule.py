@@ -3,7 +3,6 @@ import numpy as np
 from scipy.ndimage import shift
 
 
-
 class srh_mapname_ANF:
     def __init__(self, filename, homepath = ''):
         #SRH0612 _ CH06  _ 8.20GHz  _    V        _ 20230712  _ 083000.fits
@@ -48,8 +47,6 @@ def resize_data(data, nstep):
             #fill_cell(y, x, arr, data, nstep)
     return arr
 
-
-
 standard_deviation = lambda  dat : np.sqrt(np.sqrt(np.sum(dat**4)/(len(dat)**2)))
 
 def find_min_deviation(map_base, map_curr, delta_shift):
@@ -66,31 +63,4 @@ def find_min_deviation(map_base, map_curr, delta_shift):
                 best_delta = [i, j]
     #print(best_delta)
     return best_delta, minimum
-
-
-def spline(data, xstep=10):
-    ''' Увеличение разрешения карты с помощью бикубической интерполяции.
-    data: входная карта
-    xstep: во сколько раз увеличить число узлов сетки (стандартно в 10 раз)'''
-    n = len(data)
-    m = len(data[0])
-
-    wide_data = 0 # ?
-
-
-    return wide_data
-
-def shift_map(data, shift=[0, 0]):
-    ''' Сдвиг массива по горизонтали и вертикали'''
-
-
-
-    return 0
-
-
-def find_minimum(map_base, map_curr, delta_shift):
-    ''' Hахождение минимума'''    #    вынести область, по которой сдвигаем, отдельно!!!
-
-
-
-    return 0
+    
