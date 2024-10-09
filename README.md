@@ -74,7 +74,9 @@ pip install -r requirements.txt
 ```
 
 #### Настройка директорий:
-Необходимо создать папки 'testdata' и 'output'.
+Необходимо создать папку 'output' для сохранения результата.
+В папке 'testdata' должны быть данные.
+Также можно перенастроить директории в строках кода в файле `SRH_shift_maps_example.ipynb`.
 
 ```
 homedatapath = workpath + 'testdata/'
