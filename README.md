@@ -73,6 +73,15 @@ conda install astropy, matplotlib, numpy, scipy
 pip install -r requirements.txt
 ```
 
+#### Настройка директорий:
+Необходимо создать папки 'testdata' и 'output'.
+
+```
+homedatapath = workpath + 'testdata/'
+outputpath = workpath+ 'output/'
+```
+
+
 ## Видео-демонстрация
 Примеры результата программы. На фоне данные SDO/AIA, контуры построены по радиокартам СРГ. 
 
