@@ -34,6 +34,15 @@ def makecolors():
     return cols
 
 def resize_data(data, nstep):
+    """Классная функция, жаль не используется)))
+
+    Args:
+        data (_type_): _description_
+        nstep (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
     n = len(data)
     m = len(data[0])
     rows, cols = (n*nstep, m*nstep)
@@ -68,9 +77,9 @@ def find_min_deviation(map_base, map_curr, delta_shift):
 
                 if sum_shift(best_delta) <= 2 and sum_shift(best_delta) > 1:
                     k = 0.5
-                elif sum_shift(best_delta) <= 1:
+                elif sum_shift(best_delta) <= 0.5:
                     k = 0.1
 
-                print(best_delta)
+                # print(best_delta)
 
     return best_delta, minimum
