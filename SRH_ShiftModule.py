@@ -10,8 +10,8 @@ class srh_mapname_ANF:
         time_string, format_of_observation = other.split('.')
         sep_date = lambda ss :f"{ss[:4]}-{ss[4:6]}-{ss[6:8]}"
         sep_time = lambda ss :f"{ss[:2]}:{ss[2:4]}:{ss[4:6]}"
-    
-        self.name = filename 
+
+        self.name = filename
         self.observer = observer
         self.channel = channel
         self.freq = float(frequency[:-3])
@@ -52,15 +52,25 @@ standard_deviation = lambda  dat : np.sqrt(np.sqrt(np.sum(dat**4)/(len(dat)**2))
 def find_min_deviation(map_base, map_curr, delta_shift):
     minimum = 1e7
     best_delta = [0, 0]
+
+    sum_shift = lambda arr: abs(arr[0]) + abs(arr[1])
+    k = 1
+
     llist = []
-    for i in np.arange(-delta_shift[0], delta_shift[0]+1, 0.1):
-        for j in np.arange(-delta_shift[1], delta_shift[1]+1, 0.1):
+    for i in np.arange(-delta_shift[0], delta_shift[0] + 1, k):
+        for j in np.arange(-delta_shift[1], delta_shift[1] + 1, k):
             stand_dev = standard_deviation(map_base-shift(map_curr, [i, j]))
             if stand_dev < minimum:
                 llist.append(stand_dev)
 
                 minimum = stand_dev
-                best_delta = [i, j]
-    #print(best_delta)
+                best_delta = [round(i, 2), round(j, 2)]
+
+                if sum_shift(best_delta) <= 2 and sum_shift(best_delta) > 1:
+                    k = 0.5
+                elif sum_shift(best_delta) <= 1:
+                    k = 0.1
+
+                print(best_delta)
+
     return best_delta, minimum
-    
